@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, Image, StatusBar } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { style } from './style';
 import IlustrationImg from '../../assets/illustration.png';
 import { ButtonIcon } from '../../components/Buttonicon';
@@ -7,7 +7,6 @@ import { ButtonIcon } from '../../components/Buttonicon';
 export function SignIn() {
   return(
     <View style={style.container}>
-      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
       <Image 
         source={IlustrationImg}
         style={style.image}
@@ -16,7 +15,7 @@ export function SignIn() {
 
       <View style={style.content}>
         <Text style={style.title}>
-          Organize {'\n'}
+          Connect and Organize {'\n'}
           your gaming {'\n'}
           easily {'\n'}
         </Text>
@@ -26,7 +25,7 @@ export function SignIn() {
           with your friends
         </Text>
 
-        <ButtonIcon title="Entrar com o Discord" />
+        <ButtonIcon title="Login with Discord" />
 
       </View>
 
