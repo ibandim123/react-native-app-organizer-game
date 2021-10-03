@@ -3,11 +3,20 @@ import { Text, View, Image } from 'react-native';
 import { style } from './style';
 import IlustrationImg from '../../assets/illustration.png';
 import { ButtonIcon } from '../../components/Buttonicon';
+import { useNavigation } from '@react-navigation/core';
+
 
 export function SignIn() {
-  return(
+
+  const navigation = useNavigation();
+
+  function handleSignIn() {
+    navigation.navigate('Home')
+  }
+
+  return (
     <View style={style.container}>
-      <Image 
+      <Image
         source={IlustrationImg}
         style={style.image}
         resizeMode="stretch"
@@ -21,11 +30,15 @@ export function SignIn() {
         </Text>
 
         <Text style={style.subtitle}>
-          Create groups for playing your favorite games {'\n'} 
+          Create groups for playing your favorite games {'\n'}
           with your friends
         </Text>
 
-        <ButtonIcon title="Login with Discord" />
+        <ButtonIcon 
+        title="Login with Discord" 
+        activeOpacity={0.7}
+        onPress={handleSignIn}
+        />
 
       </View>
 
