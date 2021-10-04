@@ -3,6 +3,7 @@ import { View,Text } from 'react-native';
 import { styles } from './style';
 import { Profile } from '../../components/Profile'
 import { ButtonAdd } from '../../components/ButtonAdd';
+import { CategorySelect } from '../../components/CategorySelect';
 
 export function Home() {
   return (
@@ -11,7 +12,10 @@ export function Home() {
         <Profile />
         <ButtonAdd />
       </View>
-      <Text>Hello World, this is Home Page</Text>
+     
+      <View>
+        <CategorySelect categorySelected={'category'} />
+      </View>
 
     </View>
   );
