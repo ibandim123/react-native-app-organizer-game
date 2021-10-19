@@ -1,10 +1,11 @@
 import React from 'react';
-import { SvgProps } from 'react-native-svg'
-import { styles } from './styles';
-import { LinearGradient } from 'expo-linear-gradient'
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-import { theme } from '../../global/style/theme';
+import { LinearGradient } from 'expo-linear-gradient'
+import { SvgProps } from 'react-native-svg'
 import { View, Text } from 'react-native';
+
+import { styles } from './styles';
+import { theme } from '../../global/style/theme';
 
 type Props = RectButtonProps & {
   title: string;
@@ -20,25 +21,30 @@ export function Category({
   hasCheckBox = false,
   ...rest
 }: Props) {
-  const { secondary50, secondary40 , secondary80 } = theme.colors
+  const { secondary40, secondary50, secondary70 , secondary80, secondary85 } = theme.colors
 
   return (
     <RectButton {...rest}>
       <LinearGradient
         style={styles.container}
-        colors={[secondary50, secondary40 ]}
+        colors={[secondary50, secondary70 ]}
       >
         <LinearGradient 
           style={[styles.content, { opacity: checked ? 1 : 0.5 }]}
-          colors={[ checked ? secondary80 : secondary50, secondary40 ]}
+          colors={[ checked ? secondary85 : secondary50, secondary40 ]}
+          
         >
+          {
+           hasCheckBox &&
+           <View style={checked ? styles.checked: styles.check } />
+
+          }
           <View style={[styles.content, { opacity: checked ? 1: 0.4}]}>
-            <View style={checked ? styles.checked: styles.check }>
+             
               <Icon 
                 width={48} 
                 height={48}
               />
-            </View>
               <Text style={styles.title}>
                 { title }
               </Text>
