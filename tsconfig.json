@@ -3,5 +3,8 @@
   "compilerOptions": {
     "jsx": "react",
     "strict": true
-  }
+  },
+  "resolve": {
+    "extensions": [".ts", ".tsx"]
+  },
 }

@@ -8,10 +8,14 @@ import { ListHeader } from '../../components/ListHeader';
 import { Appointment } from '../../components/Appointments';
 import { ListDivider } from '../../components/ListDivider'
 
+import { useNavigation } from '@react-navigation/core';
+import { AppointmentCreate } from '../AppointmentCreate';
 
 
 export function Home() {
   const [category, setCategory] = useState('');
+
+  const navigation = useNavigation();
 
   const appointments = [
     {
@@ -39,34 +43,48 @@ export function Home() {
       description: 'Today we  will go bring challenger without lost any part '
     }
   ]
+  
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory('') : setCategory(categoryId)
+  }
 
+  function handleAppointmentDetails() {
+    navigation.navigate('AppointmentDetails')
+  }
+
+  function handleAppointmentCreate() {
+    navigation.navigate('AppointmentCreate')
   }
   return (
     <View>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd  onPress={() => handleAppointmentCreate()}/>
       </View>
 
       <CategorySelect
         categorySelected={category}
         setCategory={handleCategorySelect}
+
       />
 
       <View style={styles.content}>
-        <ListHeader
-          title="
-          Scheduled Matches"
-          subtitle="Total 6"
-        />
+        <View style={styles.description}>
+          <ListHeader
+            title="
+            Scheduled Matches"
+            subtitle="Total 6"
+          />
+        </View>
         
         <FlatList
           data={appointments}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <Appointment data={item} />
+            <Appointment 
+            data={item}
+            onPress={() => handleAppointmentDetails()}
+            />
           )}
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}

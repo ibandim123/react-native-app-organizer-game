@@ -22,8 +22,9 @@ export type AppointmentProps = {
   category: string;
   date: string;
   description: string;
-}
 
+}
+//
 type Props = RectButton & {
   data: AppointmentProps;
   
