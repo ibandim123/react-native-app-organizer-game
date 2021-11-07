@@ -61,6 +61,10 @@ First you must have Expo installed in your smartphone, run the development serve
 expo start
 ```
 
-## Enjoy
+## Realese Notes
 
- Started this project training! 💖
+  🚧 Started this project training! 🚧
+
+  Hey! Star this project! 
+
+ 
