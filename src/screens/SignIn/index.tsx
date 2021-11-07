@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
-import { Text, View, Image } from 'react-native';
+import React from 'react';
+import { Text, View, Image, Alert, ActivityIndicator } from 'react-native';
 import { style } from './style';
 import IlustrationImg from '../../assets/illustration.png';
 import { ButtonIcon } from '../../components/Buttonicon';
-import { useNavigation } from '@react-navigation/core';
 import { Background } from '../../components/Background';
+import { useAuth } from '../../hooks/auth'
+import { useNavigation } from '@react-navigation/core';
+
 
 
 export function SignIn() {
 
+  // const { user,loading, signIn } = useAuth()
   const navigation = useNavigation();
 
-  function handleSignIn() {
-    navigation.navigate('Home')
+async function handleSignIn() {
+    try {
+      navigation.navigate('Home');
+      // await signIn()
+    }catch (error) {
+      Alert.alert("error")
+    }
   }
 
   return (
@@ -36,11 +44,15 @@ export function SignIn() {
             with your friends
           </Text>
 
-          <ButtonIcon
-            title="Login with Discord"
-            activeOpacity={0.7}
-            onPress={handleSignIn}
-          />
+          {
+           
+            <ButtonIcon
+              title="Login with Discord"
+              activeOpacity={0.7}
+              onPress={handleSignIn}
+            />
+            // : <ActivityIndicator color={theme.colors.primary} /> 
+          }
 
         </View>
 

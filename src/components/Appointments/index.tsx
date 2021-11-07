@@ -7,38 +7,33 @@ import { categories } from '../../utils/categories';
 import PlayerSvg from '../../assets/player.svg'
 import CalendarSvg from '../../assets/calendar.svg'
 import { theme } from '../../global/style/theme';
-
-export type GuildProps = {
-  id: string;
-  name: string,
-  icon: null,
-  owner: boolean,
-
-}
+import { GuildProps } from '../Guild';
+import { LinearGradient } from 'react-native-svg';
 
 export type AppointmentProps = {
   id: string;
   guild: GuildProps;
   category: string;
   date: string;
-  description: string;
-
+  description: string;  
 }
-//
+
 type Props = RectButton & {
   data: AppointmentProps;
-  
+
 }
 
 export function Appointment({ data, ...rest }: Props) {
   const [category] = categories.filter(item => item.id === data.category)
   const { owner } = data.guild;
-  const { primary, on } = theme.colors
+  const { primary, on, secondary50, secondary70 } = theme.colors
   return (
     <RectButton {...rest} >
       <View style={styles.container}>
         {/* Linear Gradient Future */}
-        <GuildIcon />
+        <LinearGradient>
+          <GuildIcon />
+        </LinearGradient>
         <View style={styles.content}>
           
           <View style={styles.header}>

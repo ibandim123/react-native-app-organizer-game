@@ -52,6 +52,7 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     marginLeft: 7,
     marginRight: 24
-  }
+  },
+ 
 
 })

@@ -7,9 +7,11 @@ import { ButtonAdd } from '../../components/ButtonAdd';
 import { ListHeader } from '../../components/ListHeader';
 import { Appointment } from '../../components/Appointments';
 import { ListDivider } from '../../components/ListDivider'
-
+import { RectButton } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/core';
 import { AppointmentCreate } from '../AppointmentCreate';
+import { Background } from '../../components/Background';
+
 
 
 export function Home() {
@@ -41,7 +43,7 @@ export function Home() {
       category: '1',
       date: '22/06 at 20:40h',
       description: 'Today we  will go bring challenger without lost any part '
-    }
+    },
   ]
   
   function handleCategorySelect(categoryId: string) {
@@ -55,7 +57,9 @@ export function Home() {
   function handleAppointmentCreate() {
     navigation.navigate('AppointmentCreate')
   }
+
   return (
+    <Background>
     <View>
       <View style={styles.header}>
         <Profile />
@@ -75,28 +79,25 @@ export function Home() {
             Scheduled Matches"
             subtitle="Total 6"
           />
-        </View>
-        
-        <FlatList
-          data={appointments}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <Appointment 
-            data={item}
-            onPress={() => handleAppointmentDetails()}
-            />
-          )}
-          ItemSeparatorComponent={() => <ListDivider />}
-          style={styles.matches}
-          showsVerticalScrollIndicator={false}
-
-        />
-
-
-
+        </View>      
       </View>
 
-
     </View>
+    <FlatList
+      data={appointments}
+      keyExtractor={item => item.id}
+      renderItem={({ item }) => (
+      <Appointment 
+        data={item}
+        onPress={() => handleAppointmentDetails()}
+      />
+      )}
+      ItemSeparatorComponent={() => <ListDivider />}
+      contentContainerStyle={{paddingBottom: 69}}
+      style={styles.matches}
+      showsVerticalScrollIndicator={false}
+
+    />
+    </Background>
   );
 }

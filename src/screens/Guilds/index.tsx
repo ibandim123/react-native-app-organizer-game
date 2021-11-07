@@ -17,7 +17,50 @@ export function Guilds({ handleGuildSelect }: Props) {
       name: 'Legends',
       icon: null,
       owner: true, 
+    },    
+    {
+      id: '2',
+      name: 'Team Main',
+      icon: null,
+      owner: true, 
     },
+    {
+      id: '3',
+      name: 'Team Main',
+      icon: null,
+      owner: true, 
+    },
+    {
+      id: '4',
+      name: 'Team Main',
+      icon: null,
+      owner: true, 
+    },
+    {
+      id: '5',
+      name: 'Team Main',
+      icon: null,
+      owner: true, 
+    },
+    {
+      id: '6',
+      name: 'Team Main',
+      icon: null,
+      owner: true, 
+    },
+    {
+      id: '7',
+      name: 'Team Main',
+      icon: null,
+      owner: true, 
+    },
+    {
+      id: '8',
+      name: 'Team Main',
+      icon: null,
+      owner: true, 
+    },
+    
   ]
   return (
  
@@ -32,7 +75,9 @@ export function Guilds({ handleGuildSelect }: Props) {
             />
           )}
           showsHorizontalScrollIndicator={false}
-          ItemSeparatorComponent={() => <ListDivider />}
+          ListHeaderComponent={() => <ListDivider isCentered />}
+          contentContainerStyle={{paddingBottom: 60, paddingTop: 50}}
+          ItemSeparatorComponent={() => <ListDivider isCentered />}
           style={styles.guilds}
         />
       

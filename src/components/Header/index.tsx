@@ -42,7 +42,7 @@ export function Header({ title, action }: Props) {
           { action }
         </View>
         :
-        <View style={{ width: 24 }}/>
+        <View style={{ width: 20 }}/>
       }
     </LinearGradient>
   )
