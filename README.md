@@ -61,7 +61,7 @@ First you must have Expo installed in your smartphone, run the development serve
 expo start
 ```
 
-## Realese Notes
+## Release Notes
 
   🚧 Started this project training! 🚧
 
